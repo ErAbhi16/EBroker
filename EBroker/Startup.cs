@@ -3,6 +3,7 @@ using EBroker.Data.Repositories;
 using EBroker.Data.Repositories.Interfaces;
 using EBroker.Services;
 using EBroker.Services.Interfaces;
+using EBroker.Utils.Helpers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -34,6 +35,7 @@ namespace EBroker
 
             services.AddScoped<ITradeRepository, TradeRepository>();
             services.AddScoped<ITradeService, TradeService>();
+            services.AddScoped<ITradeHelperWrapper, TradeHelperWrapper>();
             // Register the Swagger or more Swagger documents
             services.AddSwaggerGen(c =>
             {

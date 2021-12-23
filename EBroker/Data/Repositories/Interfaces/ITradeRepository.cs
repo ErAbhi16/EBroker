@@ -15,9 +15,9 @@ namespace EBroker.Data.Repositories.Interfaces
 
         Task AddTraderHoldings(TraderHolding traderHolding);
 
-        Task<bool> UpdateTraderHoldings(TraderHolding traderHolding);
+        Task UpdateTraderHoldings(TraderHolding traderHolding);
 
-        Task<bool> UpdateTrader(Trader trader);
+        Task UpdateTrader(Trader trader);
 
         Task Complete();
 

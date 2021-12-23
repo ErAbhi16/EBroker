@@ -1,7 +1,9 @@
-﻿namespace EBroker.Utils.Helpers
+﻿using System;
+
+namespace EBroker.Utils.Helpers
 {
     public interface ITradeHelperWrapper
     {
-        bool IsValidTransactionTime();
+        bool IsValidTransactionTime(DateTime? dateTime = null);
     }
 }

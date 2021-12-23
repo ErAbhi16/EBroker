@@ -49,7 +49,7 @@ namespace EBroker.UnitTests
         {
             //Arrange
             var traderTransactionRequest = new TraderTransaction() { EquityId = 3, TraderId = 12, TransactionUnits = 12 };
-            _mockTradeHelperWrapper.Setup(s => s.IsValidTransactionTime()).Returns(true);
+            _mockTradeHelperWrapper.Setup(s => s.IsValidTransactionTime(null)).Returns(true);
             _mockTradeService.Setup(s => s.SellEquity(It.IsAny<TraderTransaction>())).ReturnsAsync("Invalid Trader");
 
             //Act
@@ -64,7 +64,7 @@ namespace EBroker.UnitTests
         {
             //Arrange
             var traderTransactionRequest = new TraderTransaction() { EquityId = 3, TraderId = 12, TransactionUnits = 12 };
-            _mockTradeHelperWrapper.Setup(s => s.IsValidTransactionTime()).Returns(true);
+            _mockTradeHelperWrapper.Setup(s => s.IsValidTransactionTime(null)).Returns(true);
             _mockTradeService.Setup(s => s.SellEquity(It.IsAny<TraderTransaction>()));
 
             //Act
@@ -78,7 +78,7 @@ namespace EBroker.UnitTests
         {
             //Arrange
             var traderTransactionRequest = new TraderTransaction() { EquityId = 3, TraderId = 12, TransactionUnits = 12 };
-            _mockTradeHelperWrapper.Setup(s => s.IsValidTransactionTime()).Returns(true);
+            _mockTradeHelperWrapper.Setup(s => s.IsValidTransactionTime(null)).Returns(true);
             _mockTradeService.Setup(s => s.SellEquity(It.IsAny<TraderTransaction>())).ReturnsAsync("Invalid Equity");
 
             //Act
@@ -93,7 +93,7 @@ namespace EBroker.UnitTests
         {
             //Arrange
             var traderTransactionRequest = new TraderTransaction() { EquityId = 3, TraderId = 12, TransactionUnits = 12 };
-            _mockTradeHelperWrapper.Setup(s => s.IsValidTransactionTime()).Returns(false);
+            _mockTradeHelperWrapper.Setup(s => s.IsValidTransactionTime(null)).Returns(false);
             //Act
             var result = await traderController.SellEquityTransaction(traderTransactionRequest) as BadRequestObjectResult;
             //Assert
@@ -118,7 +118,7 @@ namespace EBroker.UnitTests
         {
             //Arrange
             var traderTransactionRequest = new TraderTransaction() {EquityId =3,TraderId=12,TransactionUnits =12 };
-            _mockTradeHelperWrapper.Setup(s => s.IsValidTransactionTime()).Returns(true);
+            _mockTradeHelperWrapper.Setup(s => s.IsValidTransactionTime(null)).Returns(true);
             _mockTradeService.Setup(s => s.BuyEquity(It.IsAny<TraderTransaction>())).ReturnsAsync("Invalid Trader");
 
             //Act
@@ -133,7 +133,7 @@ namespace EBroker.UnitTests
         {
             //Arrange
             var traderTransactionRequest = new TraderTransaction() { EquityId = 3, TraderId = 12, TransactionUnits = 12 };
-            _mockTradeHelperWrapper.Setup(s => s.IsValidTransactionTime()).Returns(true);
+            _mockTradeHelperWrapper.Setup(s => s.IsValidTransactionTime(null)).Returns(true);
             _mockTradeService.Setup(s => s.BuyEquity(It.IsAny<TraderTransaction>()));
 
             //Act
@@ -147,7 +147,7 @@ namespace EBroker.UnitTests
         {
             //Arrange
             var traderTransactionRequest = new TraderTransaction() { EquityId = 3, TraderId = 12, TransactionUnits = 12 };
-            _mockTradeHelperWrapper.Setup(s => s.IsValidTransactionTime()).Returns(true);
+            _mockTradeHelperWrapper.Setup(s => s.IsValidTransactionTime(null)).Returns(true);
             _mockTradeService.Setup(s => s.BuyEquity(It.IsAny<TraderTransaction>())).ReturnsAsync("Invalid Equity");
 
             //Act
@@ -162,7 +162,7 @@ namespace EBroker.UnitTests
         {
             //Arrange
             var traderTransactionRequest = new TraderTransaction() { EquityId = 3, TraderId = 12, TransactionUnits = 12 };
-            _mockTradeHelperWrapper.Setup(s => s.IsValidTransactionTime()).Returns(false);
+            _mockTradeHelperWrapper.Setup(s => s.IsValidTransactionTime(null)).Returns(false);
             //Act
             var result =await traderController.BuyEquityTransaction(traderTransactionRequest) as BadRequestObjectResult;
             //Assert

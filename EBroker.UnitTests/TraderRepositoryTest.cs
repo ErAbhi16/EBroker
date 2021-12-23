@@ -138,22 +138,21 @@ namespace EBroker.UnitTests
             await _fixture.context.SaveChangesAsync();
         }
 
-        //[Fact]
-        //public async Task TradeRepository_UpdateTraderHoldings_Success()
-        //{
-        //    //Arrange
-        //    TraderHolding traderHolding = new TraderHolding() { EquityId = 2, TraderId = 1, UnitHoldings = 12 };
-        //    //Act
-        //    var result = await tradeRepository.UpdateTraderHoldings(traderHolding);
-        //    await _fixture.context.SaveChangesAsync();
+        [Fact]
+        public async Task TradeRepository_UpdateTraderHoldings_Success()
+        {
+            //Arrange
+            TraderHolding traderHolding = new TraderHolding() { EquityId = 2, TraderId = 1, UnitHoldings = 12 };
+            //Act
+            await tradeRepository.UpdateTraderHoldings(traderHolding);
+            await _fixture.context.SaveChangesAsync();
 
-        //    //Assert
-        //    var objectAdded = await _fixture.context.TraderHolding.FirstAsync(x => x.EquityId == traderHolding.EquityId && x.TraderId == traderHolding.TraderId);
-        //    Assert.True(result);
-        //    Assert.NotNull(objectAdded);
-        //    Assert.Equal(12, objectAdded.UnitHoldings);
-        //    _fixture.context.TraderHolding.Remove(objectAdded);
-        //    await _fixture.context.SaveChangesAsync();
-        //}
+            //Assert
+            var objectAdded = await _fixture.context.TraderHolding.FirstAsync(x => x.EquityId == traderHolding.EquityId && x.TraderId == traderHolding.TraderId);
+            Assert.NotNull(objectAdded);
+            Assert.Equal(12, objectAdded.UnitHoldings);
+            _fixture.context.TraderHolding.Remove(objectAdded);
+            await _fixture.context.SaveChangesAsync();
+        }
     }
 }
