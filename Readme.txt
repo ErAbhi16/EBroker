@@ -1,5 +1,8 @@
 
-Clone repo in local machine by SSH or Https. (https://github.com/ErAbhi16/EBroker)
+Clone repo in local machine by SSH or Https.
+
+https://github.com/ErAbhi16/EBroker.git
+SSH :- git@github.com:ErAbhi16/EBroker.git
 
 Open & Build solution in VS.
 
