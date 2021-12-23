@@ -54,7 +54,7 @@ namespace EBroker.Services
             }
             else
             {
-                traderHoldingsEntity.UnitHoldings += traderTransaction.TransactionUnits;
+                traderHoldingsEntity.UnitHoldings = traderHoldings.UnitHoldings + traderTransaction.TransactionUnits;
                 await _tradeRepository.UpdateTraderHoldings(traderHoldingsEntity);
             }
         }

@@ -10,12 +10,13 @@ namespace EBroker.UnitTests
     public class EBrokerSeedDataFixture : IDisposable
     {
         public EBrokerContext context { get; private set; }
-
+        
         private bool disposed = false;
         public EBrokerSeedDataFixture()
         {
             var options = new DbContextOptionsBuilder<EBrokerContext>()
             .UseInMemoryDatabase(databaseName: "EBrokerDB")
+            .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
             .Options;
 
             // Insert seed data into the database using one instance of the context
