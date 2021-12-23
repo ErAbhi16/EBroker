@@ -8,6 +8,5 @@
 
         public int TransactionUnits { get; set; }
 
-        public TradeAction TraderAction { get; set; }
     }
 }

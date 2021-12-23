@@ -25,6 +25,84 @@ namespace EBroker.Data
 
             modelBuilder.Entity<TraderHolding>()
                 .HasKey(mr => new { mr.TraderId, mr.EquityId });
+
+            modelBuilder.Entity<Equity>()
+                .HasData(
+                        new Equity
+                        {
+                            Id=12,
+                            Name = "Tata Motors",
+                            UnitPrice = 445.55
+                        },
+                        new Equity
+                        {
+                            Id = 14,
+                            Name = "Indusind Bank Ltd",
+                            UnitPrice = 848
+                        },
+                        new Equity
+                        {
+                            Id = 15,
+                            Name = "HDFC Bank",
+                            UnitPrice = 1424.50
+                        },
+                        new Equity
+                        {
+                            Id=23,
+                            Name = "Reliance Industries Ltd",
+                            UnitPrice = 2276.80
+                        },
+                        new Equity
+                        {
+                            Id=45,
+                            Name = "Rain Industries Ltd",
+                            UnitPrice = 200.50
+                        },
+                        new Equity
+                        {
+                            Id=67,
+                            Name = "Goa Carbon Ltd",
+                            UnitPrice = 311.95
+                        });
+
+            modelBuilder.Entity<Trader>()
+                .HasData(
+                        new Trader
+                        {
+                            Id=1,
+                            Name = "Abhi",
+                            Funds = 4500.50                            
+                        },
+                        new Trader
+                        {
+                            Id=2,
+                            Name = "Raghav",
+                            Funds = 1234.00
+                        },
+                       new Trader
+                       {
+                           Id=3,
+                           Name = "Ashwani",
+                           Funds = 4500.50
+                       },
+                        new Trader
+                        {
+                            Id=4,
+                            Name = "Manas",
+                            Funds = 2319
+                        },
+                        new Trader
+                        {
+                            Id=5,
+                            Name = "Arshbeer",
+                            Funds = 8344
+                        },
+                        new Trader
+                        {
+                            Id=6,
+                            Name = "Saurav",
+                            Funds = 9000
+                        });
         }
     }
 }

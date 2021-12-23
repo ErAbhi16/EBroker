@@ -2,9 +2,9 @@
 {
     public class TraderFund
     {
-        public int TraderId { get; set; }
+        public int Id { get; set; }
 
-        public decimal TraderFunds { get; set; }
+        public double Funds { get; set; }
 
     }
 }

@@ -1,5 +1,8 @@
-﻿namespace EBroker.Models
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace EBroker.Models
 {
+    [ExcludeFromCodeCoverage]
     public class TraderHolding
     {
         public int EquityId { get; set; }

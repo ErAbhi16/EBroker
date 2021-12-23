@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace EBroker.Data.Entities
 {
+    [ExcludeFromCodeCoverage]
     public class Equity
     {
         [Key]
@@ -11,7 +13,7 @@ namespace EBroker.Data.Entities
         [Required]
         public string Name { get; set; }
 
-        public decimal UnitPrice { get; set; }
+        public double UnitPrice { get; set; }
 
         public IEnumerable<TraderTransaction> TradeTransactions { get; set; }
 

@@ -11,7 +11,7 @@ namespace EBroker.Data.Entities
         [Required]
         public string Name { get; set; }
 
-        public decimal Funds { get; set; }
+        public double Funds { get; set; }
 
         public IEnumerable<TraderTransaction> TradeTransactions { get; set; }
 
