@@ -22,8 +22,6 @@ if reportgenerator not installed :- dotnet tool install -g dotnet-reportgenerato
 
 reportgenerator -reports:"TestResults\Coverage\EBroker.coverage.xml" -targetdir:"coveragereport" -reporttypes:Html
 
-Pre-requisite 
-
 
 Assumptions & Key Points :-
 
