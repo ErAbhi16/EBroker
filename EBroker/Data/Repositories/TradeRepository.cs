@@ -15,12 +15,12 @@ namespace EBroker.Data.Repositories
 
         public async Task<Equity> GetEquityById(int equityId)
         {
-            return await _dbContext.Equity.FirstOrDefaultAsync(x => x.Id == equityId);
+            return await _dbContext.Equity.AsNoTracking().FirstOrDefaultAsync(x => x.Id == equityId);
         }
 
         public async Task<Trader> GetTraderById(int traderId)
         {
-            return await _dbContext.Trader.FirstOrDefaultAsync(x => x.Id == traderId);
+            return await _dbContext.Trader.AsNoTracking().FirstOrDefaultAsync(x => x.Id == traderId);
         }
 
         public async Task AddTraderTransaction(TraderTransaction traderTransaction)
@@ -40,12 +40,14 @@ namespace EBroker.Data.Repositories
 
         public async Task UpdateTraderHoldings(TraderHolding traderHolding)
         {
-            _dbContext.TraderHolding.Update(traderHolding).State = EntityState.Modified;
+            var entry = _dbContext.TraderHolding.Find(traderHolding.TraderId, traderHolding.EquityId);
+            _dbContext.Entry(entry).CurrentValues.SetValues(traderHolding);
         }
 
         public async Task UpdateTrader(Trader trader)
         {
-            _dbContext.Set<Trader>().Update(trader).State = EntityState.Modified;
+            var entry = _dbContext.Trader.Find(trader.Id);
+            _dbContext.Entry(entry).CurrentValues.SetValues(trader);
         }
 
         public async Task Complete()

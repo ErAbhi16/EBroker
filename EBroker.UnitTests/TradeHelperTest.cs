@@ -8,21 +8,23 @@ namespace EBroker.UnitTests
 {
     public class TradeHelperTest
     {
-        [Fact]
-        public void TradeHelper_IsValidTime_ReturnsTrue()
+        [Theory,MemberData(nameof(ValidateDateTimeData))]
+        public void TradeHelper_CheckIfValidTimeWindow(int yr,int month,int day,int hr,int min, int sec, bool isValid )
         {
-            DateTime dateTime = new DateTime(2021, 12, 23, 11, 23, 12);
-            var result=TradeHelper.IsValidTransactionTime(dateTime);
-            Assert.True(result);
+            DateTime dateTime = new DateTime(yr, month, day, hr, min, sec);
+            var result = TradeHelper.IsValidTransactionTime(dateTime);
+            Assert.Equal(result,isValid);
         }
 
-        [Fact]
-        public void TradeHelper_IsValidTime_ReturnsFalse()
+        public static IEnumerable<object[]> ValidateDateTimeData =>
+        new List<object[]>
         {
-            DateTime dateTime = new DateTime(2021, 12, 23, 08, 23, 12);
-            var result = TradeHelper.IsValidTransactionTime(dateTime);
-            Assert.False(result);
-        }
+            new object[] { 2021, 12, 23, 22, 2, 12, false  },
+            new object[] { 2021, 12, 25, 22, 2, 12, false  },
+            new object[] { 2021, 12, 26, 22, 2, 12, false  },
+            new object[] { 2021, 12, 23, 11, 2, 12, true  },
+            new object[] { 2021, 12, 23, 15, 0, 0, true  }
+        };
 
     }
 }
