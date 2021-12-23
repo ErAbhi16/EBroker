@@ -28,7 +28,7 @@ reportgenerator -reports:"TestResults\Coverage\EBroker.coverage.xml" -targetdir:
 
 Assumptions & Key Points :-
 
-a)DateTime is kept taken as DateTime.now to check transaction at real time rather than taking as input
+a)DateTime is taken as DateTime.now to check transaction at real time rather than taking as input
 b)Single Repository is created for simplicity purpose instead of following best practices like Repository + unit of work pattern
 c)Seed Data is added to avoid entering data via end point for equity and trader so no endpoint is created to create trader/equity 
 
